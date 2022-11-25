@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ng-if, ng-readonly, ng-disabled example</title>
+    <!-- Angular JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="">
+
+    <!-- ng-if is mostly use in designing web forms -->
+    Register Now? <input type="checkbox" ng-model="myVar" ng-init="myVar = true">
+    <input type="checkbox" ng-model="myVar2" ng-init="myVar2 = false">
+
+    <div ng-if="myVar">
+        <p>Sign in</p>
+        <label>Username</label>
+        <input type="text">
+        <label>Password</label>
+        <input type="text">
+    </div>
+
+    
+    <div ng-if="myVar2">
+        <p>Sign in</p>
+        <label>Username</label>
+        <input type="text">
+        <label>Password</label>
+        <input type="text">
+    </div>
+
+    <!-- ng-readonly -->
+    <div>
+        <label>Click me to make text readonly</label>
+        <input type="checkbox" ng-model="checked"> 
+
+        <input type="text" ng-readonly="checked" value=""/>
+    </div>
+
+    <!-- ng-disabled -->
+    <div>
+        <label>Click me to make text readonly</label>
+        <input type="checkbox" ng-model="checked1"> 
+
+        <input type="text" ng-disabled="checked1" value=""/>
+    </div>
+
+     <!-- ng-hide, ng-disabled, ng-click, ng-show (FRONT-END Validation) -->
+     <form name="form">
+        <div ng-hide="toShow">
+            <input type="text" required ng-model="Name" placeholder="please enter your email"/>
+            <br>
+            <br>
+            <input type="button" ng-disabled="form.$invalid" ng-click="toShow = true" value="Sign In"/>
+        </div>
+        
+        <div ng-show="toShow">
+            Sign in successfull. 
+            <br>
+            <br>
+            <input type="button" ng-click="toShow=false" value="Logout"> 
+        </div>
+    </form>
+</body>
+</html>
